@@ -6,20 +6,28 @@ body {
 }
 
 .grid{
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+	height: 400px;
     justify-content: center;
     background-color: white;
-    border: solid #fff 200px;
+    border: solid #fff ;
     margin: 88px;
     margin-right: auto;
-    margin-left: auto;
-     
+    margin-left: auto; 
 }
+
+.grid div {
+	width: 25px;
+	height: 25px;
+}
+
 
 .player{
     background-color:green;
 }
 
 .invader{
-    background-color: red;
+    background-color: rgb(255, 51, 0);
 }
