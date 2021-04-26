@@ -32,3 +32,12 @@ body {
     background-color: rgb(255, 51, 0);
     border-radius: 10px;
 }
+
+.laser {
+    background-image: url("images/laser.png");
+    background-size: cover;
+}
+
+.boom {
+	background-color: red;
+}

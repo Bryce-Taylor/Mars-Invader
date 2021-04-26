@@ -1,8 +1,12 @@
 const grid = document.querySelector('.grid')
-let playerPostion = 184
-let width = 22
+const resultsDisplay = document.querySelector('.results')
+let playerPostion = 230
+let width = 16
+let enemiesRemoved = []
+let results = 0
 
-for(let i = 0; i < 200; i++){
+
+for(let i = 0; i < 256; i++){
     const square = document.createElement('div');
     grid.appendChild(square)
 }
@@ -34,9 +38,40 @@ function movePlayer(e) {
         if (playerPostion % width !== 0) playerPostion -=1
         break
       case 'd' :
-        if (playerPostion % width < width -7) playerPostion +=1
+        if (playerPostion % width < width -1) playerPostion +=1
         break
     }
     squares[playerPostion].classList.add('player')
 }
 document.addEventListener('keydown', movePlayer)
+
+
+function laser(pew){
+    let laserId
+    let laserPostion = playerPostion
+    function movingLaser(){
+        squares[laserPostion].classList.remove('laser')
+        laserPostion -= width 
+        squares[laserPostion].classList.add('laser')
+
+        if (squares[laserPostion].classList.contains('invader')){
+            squares[laserPostion].classList.remove('laser')
+            squares[laserPostion].classList.remove('invader')
+            squares[laserPostion].classList.add('boom')
+
+            setTimeout(()=> squares[laserPostion].classList.remove('boom'), 300)
+            clearInterval(laserId)
+
+            const enemyRemoved = enemies.indexOf(laserPostion)
+            enemiesRemoved.push(enemyRemoved)
+            results++
+            resultsDisplay.innerHTML = results
+        } 
+    }
+    switch(pew.key){
+        case 'w':
+            laserId = setInterval(movingLaser, 100);
+    }
+}
+
+document.addEventListener('keydown', laser)
