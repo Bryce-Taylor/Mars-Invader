@@ -1,8 +1,8 @@
 const grid = document.querySelector('.grid')
-let currentShooterIndex = 202
+let playerPostion = 190
 let width = 15
 
-for(let i = 0; i<225; i++){
+for(let i = 0; i < 200; i++){
     const square = document.createElement('div');
     grid.appendChild(square)
 }
@@ -11,18 +11,18 @@ const squares = Array.from(document.querySelectorAll('.grid div'))
 
 draw()
 
-squares[currentShooterIndex].classList.add('player')
+squares[playerPostion].classList.add('player')
 
-// function movePlayer(e) {
-//     squares[currentShooterIndex].classList.remove('player')
-//     switch(e.key) {
-//       case 'KeyA':
-//         if (currentShooterIndex % width !== 0) currentShooterIndex -=1
-//         break
-//       case 'KeyD' :
-//         if (currentShooterIndex % width < width -1) currentShooterIndex +=1
-//         break
-//     }
-//     squares[currentShooterIndex].classList.add('player')
-// }
-// document.addEventListener('keydown', movePlayer)
+function movePlayer(e) {
+    squares[playerPostion].classList.remove('player')
+    switch(e.key) {
+      case 'KeyA':
+        if (playerPostion % width !== 0) playerPostion -=1
+        break
+      case 'KeyD' :
+        if (playerPostion % width < width -1) playerPostion +=1
+        break
+    }
+    squares[playerPostion].classList.add('player')
+}
+document.addEventListener('Space', movePlayer)
