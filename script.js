@@ -1,6 +1,6 @@
 const grid = document.querySelector('.grid')
 const resultsDisplay = document.querySelector('.results') 
-let playerPostion = 200
+let playerPostion = 232
 let width = 16
 let direction = 1
 let enemiesRemoved = []
