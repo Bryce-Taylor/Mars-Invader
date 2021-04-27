@@ -26,6 +26,6 @@
 
 - Monday: the user will be shown the proposal of the project as well as the basic layout of the game. 
 - Tuesday: the user will be met with the basic layout of the game.
-- Wednesday: the user will see the details we will add, like the player's ship, the enemies and their patterns of appearing on the screen, the player's health bar, and score throughout the game.
+- Wednesday: the user will see the details we will add, like the player's ship, the enemies and their patterns of appearing on the screen and score throughout the game.
 - Thursday: the user will hear the sounds of the laser shooting as well as the hitting of the enemy and player, and the background music throughout the playthrough. 
 - Friday: the user will be shown the final product of the game. 
