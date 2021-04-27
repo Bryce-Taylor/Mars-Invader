@@ -1,10 +1,12 @@
 const grid = document.querySelector('.grid')
+const resultsDisplay = document.querySelector('.results') 
 let playerPostion = 200
 let width = 16
 let direction = 1
 let enemiesRemoved = []
 let enemyId
 let goingRight = true;
+let results = 0
 
 for(let i = 0; i < 256; i++){
     const square = document.createElement('div');
@@ -21,13 +23,15 @@ const enemies = [
 ]
 function draw(){
     for(let i = 0; i < enemies.length; i++){
+      if(!enemiesRemoved.includes(i)){
         coordinates[enemies[i]].classList.add('invader');
     }
+  }
 }
 
 function remove(){
     for(let i = 0; i < enemies.length; i++){
-        coordinates[enemies[i]].classList.remove('invader')
+        coordinates[enemies[i]].classList.remove('invader')   
     }
 }
 
