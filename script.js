@@ -77,20 +77,24 @@ function moveInvaders() {
     }
   
     draw()
+
     if (coordinates[playerPostion].classList.contains('invader', 'player')) {
       resultsDisplay.innerHTML = 'GAME OVER'
       clearInterval(enemyId)
+      coordinates[playerPostion].classList.remove('player');
     }
   
     for (let i = 0; i < enemies.length; i++) {
       if(enemies[i] > (coordinates.length)) {
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(enemyId)
+        
       }
     }
     if (enemiesRemoved.length === enemies.length) {
       resultsDisplay.innerHTML = 'YOU WIN'
       clearInterval(enemyId)
+      
     }
 }
 
