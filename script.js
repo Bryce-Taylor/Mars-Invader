@@ -1,6 +1,6 @@
 const grid = document.querySelector('.grid')
 const resultsDisplay = document.querySelector('.results') 
-let playerPostion = 200
+let playerPosition = 232
 let width = 16
 let direction = 1
 let enemiesRemoved = []
@@ -35,19 +35,19 @@ function remove(){
     }
 }
 
-coordinates[playerPostion].classList.add('player')
+coordinates[playerPosition].classList.add('player')
 
 function movePlayer(e) {
-    coordinates[playerPostion].classList.remove('player')
+    coordinates[playerPosition].classList.remove('player')
     switch(e.key) {
       case 'a':
-        if (playerPostion % width !== 0) playerPostion -=1
+        if (playerPosition % width !== 0) playerPosition -=1
         break
       case 'd' :
-        if (playerPostion % width < width - 1) playerPostion +=1
+        if (playerPosition % width < width - 1) playerPosition +=1
         break
     }
-    coordinates[playerPostion].classList.add('player')
+    coordinates[playerPosition].classList.add('player')
 }
 document.addEventListener('keydown', movePlayer)
 
@@ -78,10 +78,10 @@ function moveInvaders() {
   
     draw()
 
-    if (coordinates[playerPostion].classList.contains('invader', 'player')) {
+    if (coordinates[playerPosition].classList.contains('invader', 'player')) {
       resultsDisplay.innerHTML = 'GAME OVER'
       clearInterval(enemyId)
-      coordinates[playerPostion].classList.remove('player');
+      coordinates[playerPosition].classList.remove('player');
     }
   
     for (let i = 0; i < enemies.length; i++) {
@@ -103,21 +103,21 @@ enemyId = setInterval(moveInvaders, 150)
 
 function singleLaser(pew){
   let laserId
-  let laserPostion = playerPostion
+  let laserPosition = playerPosition
   function movingSingleLaser(){
-      coordinates[laserPostion].classList.remove('laser')
-      laserPostion -= width 
-      coordinates[laserPostion].classList.add('laser')
+      coordinates[laserPosition].classList.remove('laser')
+      laserPosition -= width 
+      coordinates[laserPosition].classList.add('laser')
 
-      if (coordinates[laserPostion].classList.contains('invader')){
-          coordinates[laserPostion].classList.remove('laser')
-          coordinates[laserPostion].classList.remove('invader')
-          coordinates[laserPostion].classList.add('boom')
+      if (coordinates[laserPosition].classList.contains('invader')){
+          coordinates[laserPosition].classList.remove('laser')
+          coordinates[laserPosition].classList.remove('invader')
+          coordinates[laserPosition].classList.add('boom')
 
-          setTimeout(()=> coordinates[laserPostion].classList.remove('boom'), 300)
+          setTimeout(()=> coordinates[laserPosition].classList.remove('boom'), 300)
           clearInterval(laserId)
 
-          const enemyRemoved = enemies.indexOf(laserPostion)
+          const enemyRemoved = enemies.indexOf(laserPosition)
           enemiesRemoved.push(enemyRemoved)
           results++
           resultsDisplay.innerHTML = results
@@ -134,21 +134,21 @@ document.addEventListener('keydown', singleLaser)
 
 function leftLaser(pew){
     let laserLeftId
-    let laserPostion = playerPostion
+    let laserPosition = playerPosition
     function movingLeftLaser(){
-        coordinates[laserPostion-1].classList.remove('laser')
-        laserPostion -= width 
-        coordinates[laserPostion-1].classList.add('laser')
+        coordinates[laserPosition-1].classList.remove('laser')
+        laserPosition -= width 
+        coordinates[laserPosition-1].classList.add('laser')
 
-        if (coordinates[laserPostion-1].classList.contains('invader')){
-            coordinates[laserPostion-1].classList.remove('laser')
-            coordinates[laserPostion-1].classList.remove('invader')
-            coordinates[laserPostion-1].classList.add('boom')
+        if (coordinates[laserPosition-1].classList.contains('invader')){
+            coordinates[laserPosition-1].classList.remove('laser')
+            coordinates[laserPosition-1].classList.remove('invader')
+            coordinates[laserPosition-1].classList.add('boom')
 
-            setTimeout(()=> coordinates[laserPostion-1].classList.remove('boom'), 300)
+            setTimeout(()=> coordinates[laserPosition-1].classList.remove('boom'), 300)
             clearInterval(laserLeftId)
 
-            const enemyRemoved = enemies.indexOf(laserPostion-1)
+            const enemyRemoved = enemies.indexOf(laserPosition-1)
             enemiesRemoved.push(enemyRemoved)
             results++
             resultsDisplay.innerHTML = results
@@ -165,21 +165,21 @@ document.addEventListener('keydown', leftLaser)
 
 function middleLaser(pew){
   let laserMiddleId
-  let laserPostion = playerPostion
+  let laserPosition = playerPosition
   function movingMiddleLaser(){
-      coordinates[laserPostion].classList.remove('laser')
-      laserPostion -= width 
-      coordinates[laserPostion].classList.add('laser')
+      coordinates[laserPosition].classList.remove('laser')
+      laserPosition -= width 
+      coordinates[laserPosition].classList.add('laser')
 
-      if (coordinates[laserPostion].classList.contains('invader')){
-          coordinates[laserPostion].classList.remove('laser')
-          coordinates[laserPostion].classList.remove('invader')
-          coordinates[laserPostion].classList.add('boom')
+      if (coordinates[laserPosition].classList.contains('invader')){
+          coordinates[laserPosition].classList.remove('laser')
+          coordinates[laserPosition].classList.remove('invader')
+          coordinates[laserPosition].classList.add('boom')
 
-          setTimeout(()=> coordinates[laserPostion].classList.remove('boom'), 300)
+          setTimeout(()=> coordinates[laserPosition].classList.remove('boom'), 300)
           clearInterval(laserMiddleId)
 
-          const enemyRemoved = enemies.indexOf(laserPostion)
+          const enemyRemoved = enemies.indexOf(laserPosition)
           enemiesRemoved.push(enemyRemoved)
           results++
           resultsDisplay.innerHTML = results
@@ -195,21 +195,21 @@ document.addEventListener('keydown', middleLaser)
 
 function rightLaser(pew){
   let laserRightId
-  let laserPostion = playerPostion
+  let laserPosition = playerPosition
   function movingRightLaser(){
-      coordinates[laserPostion+1].classList.remove('laser')
-      laserPostion -= width 
-      coordinates[laserPostion+1].classList.add('laser')
+      coordinates[laserPosition+1].classList.remove('laser')
+      laserPosition -= width 
+      coordinates[laserPosition+1].classList.add('laser')
 
-      if (coordinates[laserPostion+1].classList.contains('invader')){
-          coordinates[laserPostion+1].classList.remove('laser')
-          coordinates[laserPostion+1].classList.remove('invader')
-          coordinates[laserPostion+1].classList.add('boom')
+      if (coordinates[laserPosition+1].classList.contains('invader')){
+          coordinates[laserPosition+1].classList.remove('laser')
+          coordinates[laserPosition+1].classList.remove('invader')
+          coordinates[laserPosition+1].classList.add('boom')
 
-          setTimeout(()=> coordinates[laserPostion+1].classList.remove('boom'), 300)
+          setTimeout(()=> coordinates[laserPosition+1].classList.remove('boom'), 300)
           clearInterval(laserRightId)
 
-          const enemyRemoved = enemies.indexOf(laserPostion+1)
+          const enemyRemoved = enemies.indexOf(laserPosition+1)
           enemiesRemoved.push(enemyRemoved)
           results++
           resultsDisplay.innerHTML = results
@@ -226,7 +226,7 @@ document.addEventListener('keydown', rightLaser)
 
 // switch(pew.key){
 //   case 'e':
-//     let rocketPosition = playerPostion
+//     let rocketPosition = playerPosition
 //     function rocket(){
 //       weapon = "rocket"
 //       movingLaser()
@@ -238,9 +238,9 @@ document.addEventListener('keydown', rightLaser)
 // document.addEventListener('keydown', laser)
 
 
-// const leftEnemyRemoved = enemies.indexOf(laserPostion-1)
-// const middleEnemyRemoved = enemies.indexOf(laserPostion)
-// const rightEnemyRemoved = enemies.indexOf(laserPostion+1)
+// const leftEnemyRemoved = enemies.indexOf(laserPosition-1)
+// const middleEnemyRemoved = enemies.indexOf(laserPosition)
+// const rightEnemyRemoved = enemies.indexOf(laserPosition+1)
 // enemiesRemoved.push(leftEnemyRemoved)
 // enemiesRemoved.push(middleEnemyRemoved)
 // enemiesRemoved.push(rightEnemyRemoved)
