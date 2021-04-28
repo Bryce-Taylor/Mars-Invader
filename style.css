@@ -23,6 +23,9 @@ body {
 	height: 25px;
 }
 
+.results{
+    font-family: 'Press Start 2P', cursive;
+}
 
 .player{
     background-image: url("images/player.png") ;
