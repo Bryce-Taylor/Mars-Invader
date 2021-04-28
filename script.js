@@ -1,6 +1,6 @@
 const grid = document.querySelector('.grid')
 const resultsDisplay = document.querySelector('.results') 
-let playerPostion = 232
+let playerPostion = 200
 let width = 16
 let direction = 1
 let enemiesRemoved = []
@@ -87,8 +87,7 @@ function moveInvaders() {
     for (let i = 0; i < enemies.length; i++) {
       if(enemies[i] > (coordinates.length)) {
         resultsDisplay.innerHTML = 'GAME OVER'
-        clearInterval(enemyId)
-        
+        clearInterval(enemyId) 
       }
     }
     if (enemiesRemoved.length === enemies.length) {
