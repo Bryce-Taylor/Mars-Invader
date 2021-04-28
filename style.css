@@ -43,7 +43,8 @@ body {
 }
 
 .rocket {
-    background-color: purple;
+    background-image: url("images/rocket.png");
+    background-size: contain;
 }
 
 .boom {

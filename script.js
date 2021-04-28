@@ -84,7 +84,7 @@ function moveInvaders() {
       coordinates[playerPosition].classList.remove('player');
     }
   
-    for (let i = 0; i < enemies.length; i++) {
+    for (let i = 0; i <= enemies.length; i++) {
       if(enemies[i] > (coordinates.length)) {
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(enemyId) 
@@ -222,6 +222,52 @@ function rightLaser(pew){
   }
 }
 document.addEventListener('keydown', rightLaser)
+
+
+
+
+
+function rocket(pew){
+   let rocketId
+   let rocketPosition = playerPosition
+   function movingRocket(){
+     coordinates[rocketPosition].classList.remove('rocket')
+     rocketPosition -= width;
+     coordinates[rocketPosition].classList.add('rocket')
+
+     if(coordinates[rocketPosition].classList.contains('invader')){
+      coordinates[rocketPosition].classList.remove('rocket')
+      coordinates[rocketPosition].classList.remove('invader')
+      coordinates[rocketPosition - 1].classList.remove('invader')
+      coordinates[rocketPosition +1].classList.remove('invader')
+      coordinates[rocketPosition].classList.add('boom')
+      coordinates[rocketPosition-1].classList.add('boom')
+      coordinates[rocketPosition +1].classList.add('boom');
+      setTimeout(() => coordinates[rocketPosition].classList.remove('boom'), 300 && coordinates[rocketPosition -1].classList.remove('boom'), 300 && coordinates[rocketPosition +1].classList.remove('boom'), 300)
+      clearInterval(rocketId)
+
+      const leftRocketEnemyRemoved = enemies.indexOf(rocketPosition-1)
+      enemiesRemoved.push(leftRocketEnemyRemoved)
+      const middleRocketEnemyRemoved = enemies.indexOf(rocketPosition)
+      enemiesRemoved.push(middleRocketEnemyRemoved)
+      const rightRocketEnemyRemoved = enemies.indexOf(rocketPosition +1)
+      enemiesRemoved.push(rightRocketEnemyRemoved)
+      results+=3
+      resultsDisplay.innerHTML = results
+      console.log(enemiesRemoved)
+
+      }
+  
+   }
+   switch(pew.key){
+     case 'e':
+       rocketId = setInterval(movingRocket, 200)
+
+   }
+
+}
+document.addEventListener('keydown', rocket);
+
 
 
 // switch(pew.key){
