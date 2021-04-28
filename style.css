@@ -39,6 +39,10 @@ body {
     background-size: cover;
 }
 
+.rocket {
+    background-color: purple;
+}
+
 .boom {
 	background-image: url("images/explosion.png");
 }

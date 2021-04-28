@@ -102,24 +102,54 @@ enemyId = setInterval(moveInvaders, 150)
 
 
 
+function singleLaser(pew){
+  let laserId
+  let laserPostion = playerPostion
+  function movingSingleLaser(){
+      coordinates[laserPostion].classList.remove('laser')
+      laserPostion -= width 
+      coordinates[laserPostion].classList.add('laser')
 
-function laser(pew){
-    let laserId
+      if (coordinates[laserPostion].classList.contains('invader')){
+          coordinates[laserPostion].classList.remove('laser')
+          coordinates[laserPostion].classList.remove('invader')
+          coordinates[laserPostion].classList.add('boom')
+
+          setTimeout(()=> coordinates[laserPostion].classList.remove('boom'), 300)
+          clearInterval(laserId)
+
+          const enemyRemoved = enemies.indexOf(laserPostion)
+          enemiesRemoved.push(enemyRemoved)
+          results++
+          resultsDisplay.innerHTML = results
+          console.log(enemiesRemoved)
+      } 
+  }
+  switch(pew.key){
+      case 'w':
+          laserId = setInterval(movingSingleLaser, 100);
+  }
+}
+document.addEventListener('keydown', singleLaser)
+
+
+function leftLaser(pew){
+    let laserLeftId
     let laserPostion = playerPostion
-    function movingLaser(){
-        coordinates[laserPostion].classList.remove('laser')
+    function movingLeftLaser(){
+        coordinates[laserPostion-1].classList.remove('laser')
         laserPostion -= width 
-        coordinates[laserPostion].classList.add('laser')
+        coordinates[laserPostion-1].classList.add('laser')
 
-        if (coordinates[laserPostion].classList.contains('invader')){
-            coordinates[laserPostion].classList.remove('laser')
-            coordinates[laserPostion].classList.remove('invader')
-            coordinates[laserPostion].classList.add('boom')
+        if (coordinates[laserPostion-1].classList.contains('invader')){
+            coordinates[laserPostion-1].classList.remove('laser')
+            coordinates[laserPostion-1].classList.remove('invader')
+            coordinates[laserPostion-1].classList.add('boom')
 
-            setTimeout(()=> coordinates[laserPostion].classList.remove('boom'), 300)
-            clearInterval(laserId)
+            setTimeout(()=> coordinates[laserPostion-1].classList.remove('boom'), 300)
+            clearInterval(laserLeftId)
 
-            const enemyRemoved = enemies.indexOf(laserPostion)
+            const enemyRemoved = enemies.indexOf(laserPostion-1)
             enemiesRemoved.push(enemyRemoved)
             results++
             resultsDisplay.innerHTML = results
@@ -127,9 +157,91 @@ function laser(pew){
         } 
     }
     switch(pew.key){
-        case 'w':
-            laserId = setInterval(movingLaser, 100);
+        case 'q':
+            laserLeftId = setInterval(movingLeftLaser, 100);
     }
 }
 
-document.addEventListener('keydown', laser)
+document.addEventListener('keydown', leftLaser)
+
+function middleLaser(pew){
+  let laserMiddleId
+  let laserPostion = playerPostion
+  function movingMiddleLaser(){
+      coordinates[laserPostion].classList.remove('laser')
+      laserPostion -= width 
+      coordinates[laserPostion].classList.add('laser')
+
+      if (coordinates[laserPostion].classList.contains('invader')){
+          coordinates[laserPostion].classList.remove('laser')
+          coordinates[laserPostion].classList.remove('invader')
+          coordinates[laserPostion].classList.add('boom')
+
+          setTimeout(()=> coordinates[laserPostion].classList.remove('boom'), 300)
+          clearInterval(laserMiddleId)
+
+          const enemyRemoved = enemies.indexOf(laserPostion)
+          enemiesRemoved.push(enemyRemoved)
+          results++
+          resultsDisplay.innerHTML = results
+          console.log(enemiesRemoved)
+      } 
+  }
+  switch(pew.key){
+      case 'q':
+          laserMiddleId = setInterval(movingMiddleLaser, 100);
+  }
+}
+document.addEventListener('keydown', middleLaser)
+
+function rightLaser(pew){
+  let laserRightId
+  let laserPostion = playerPostion
+  function movingRightLaser(){
+      coordinates[laserPostion+1].classList.remove('laser')
+      laserPostion -= width 
+      coordinates[laserPostion+1].classList.add('laser')
+
+      if (coordinates[laserPostion+1].classList.contains('invader')){
+          coordinates[laserPostion+1].classList.remove('laser')
+          coordinates[laserPostion+1].classList.remove('invader')
+          coordinates[laserPostion+1].classList.add('boom')
+
+          setTimeout(()=> coordinates[laserPostion+1].classList.remove('boom'), 300)
+          clearInterval(laserRightId)
+
+          const enemyRemoved = enemies.indexOf(laserPostion+1)
+          enemiesRemoved.push(enemyRemoved)
+          results++
+          resultsDisplay.innerHTML = results
+          console.log(enemiesRemoved)
+      } 
+  }
+  switch(pew.key){
+      case 'q':
+          laserRightId = setInterval(movingRightLaser, 100);
+  }
+}
+document.addEventListener('keydown', rightLaser)
+
+
+// switch(pew.key){
+//   case 'e':
+//     let rocketPosition = playerPostion
+//     function rocket(){
+//       weapon = "rocket"
+//       movingLaser()
+//     }
+//     laserId = setInterval(rocket, 100);
+// }
+// }
+
+// document.addEventListener('keydown', laser)
+
+
+// const leftEnemyRemoved = enemies.indexOf(laserPostion-1)
+// const middleEnemyRemoved = enemies.indexOf(laserPostion)
+// const rightEnemyRemoved = enemies.indexOf(laserPostion+1)
+// enemiesRemoved.push(leftEnemyRemoved)
+// enemiesRemoved.push(middleEnemyRemoved)
+// enemiesRemoved.push(rightEnemyRemoved)
