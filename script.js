@@ -15,6 +15,7 @@ for(let i = 0; i < 256; i++){
 
 const coordinates = Array.from(document.querySelectorAll('.grid div'));
 
+
 const enemies = [
     0,1,2,3,4,5,6,
     16,17,18,19,20,21,22,
@@ -97,7 +98,7 @@ function moveInvaders() {
     }
 }
 
-enemyId = setInterval(moveInvaders, 150)
+enemyId = setInterval(moveInvaders, 100)
 
 
 
@@ -121,7 +122,6 @@ function singleLaser(pew){
           enemiesRemoved.push(enemyRemoved)
           results++
           resultsDisplay.innerHTML = results
-          console.log(enemiesRemoved)
       } 
   }
   switch(pew.key){
@@ -152,7 +152,7 @@ function leftLaser(pew){
             enemiesRemoved.push(enemyRemoved)
             results++
             resultsDisplay.innerHTML = results
-            console.log(enemiesRemoved)
+
         } 
     }
     switch(pew.key){
@@ -183,7 +183,6 @@ function middleLaser(pew){
           enemiesRemoved.push(enemyRemoved)
           results++
           resultsDisplay.innerHTML = results
-          console.log(enemiesRemoved)
       } 
   }
   switch(pew.key){
@@ -213,7 +212,6 @@ function rightLaser(pew){
           enemiesRemoved.push(enemyRemoved)
           results++
           resultsDisplay.innerHTML = results
-          console.log(enemiesRemoved)
       } 
   }
   switch(pew.key){
@@ -236,14 +234,19 @@ function rocket(pew){
      coordinates[rocketPosition].classList.add('rocket')
 
      if(coordinates[rocketPosition].classList.contains('invader')){
-      coordinates[rocketPosition].classList.remove('rocket')
-      coordinates[rocketPosition].classList.remove('invader')
-      coordinates[rocketPosition - 1].classList.remove('invader')
-      coordinates[rocketPosition +1].classList.remove('invader')
-      coordinates[rocketPosition].classList.add('boom')
-      coordinates[rocketPosition-1].classList.add('boom')
-      coordinates[rocketPosition +1].classList.add('boom');
-      setTimeout(() => coordinates[rocketPosition].classList.remove('boom'), 300 && coordinates[rocketPosition -1].classList.remove('boom'), 300 && coordinates[rocketPosition +1].classList.remove('boom'), 300)
+     coordinates[rocketPosition].classList.remove('rocket')
+     coordinates[rocketPosition].classList.remove('invader')
+     coordinates[rocketPosition - 1].classList.remove('invader')
+     coordinates[rocketPosition +1].classList.remove('invader')
+     coordinates[rocketPosition -16].classList.remove('invader')
+     coordinates[rocketPosition].classList.add('boom')
+     coordinates[rocketPosition-1].classList.add('boom')
+     coordinates[rocketPosition +1].classList.add('boom');
+     coordinates[rocketPosition -16].classList.add('boom');
+      setTimeout(() => coordinates[rocketPosition].classList.remove('boom'), 300 
+      && coordinates[rocketPosition -1].classList.remove('boom'), 300 
+      && coordinates[rocketPosition +1].classList.remove('boom'), 300
+      && coordinates[rocketPosition-16].classList.remove('boom'), 300) 
       clearInterval(rocketId)
 
       const leftRocketEnemyRemoved = enemies.indexOf(rocketPosition-1)
@@ -252,9 +255,10 @@ function rocket(pew){
       enemiesRemoved.push(middleRocketEnemyRemoved)
       const rightRocketEnemyRemoved = enemies.indexOf(rocketPosition +1)
       enemiesRemoved.push(rightRocketEnemyRemoved)
+      const topRocketEnemyRemoved = enemies.indexOf(rocketPosition -16)
+      enemiesRemoved.push(topRocketEnemyRemoved)
       results+=3
       resultsDisplay.innerHTML = results
-      console.log(enemiesRemoved)
 
       }
   
@@ -268,6 +272,7 @@ function rocket(pew){
 }
 document.addEventListener('keydown', rocket);
 
+console.log(coordinates)
 
 
 // switch(pew.key){
