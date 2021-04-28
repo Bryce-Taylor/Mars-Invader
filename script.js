@@ -310,36 +310,3 @@ function rocket(pew){
 document.addEventListener('keydown', rocket);
 
 console.log(coordinates)
-
-
-
-
-
-
-//if(!fired){
-//   laserId = setInterval(movingSingleLaser, 100);
-//   setInterval(() => {
-//     fired = false
-//   }, 1200);
-//   fired = true
-// }
-// switch(pew.key){
-//   case 'e':
-//     let rocketPosition = playerPosition
-//     function rocket(){
-//       weapon = "rocket"
-//       movingLaser()
-//     }
-//     laserId = setInterval(rocket, 100);
-// }
-// }
-
-// document.addEventListener('keydown', laser)
-
-
-// const leftEnemyRemoved = enemies.indexOf(laserPosition-1)
-// const middleEnemyRemoved = enemies.indexOf(laserPosition)
-// const rightEnemyRemoved = enemies.indexOf(laserPosition+1)
-// enemiesRemoved.push(leftEnemyRemoved)
-// enemiesRemoved.push(middleEnemyRemoved)
-// enemiesRemoved.push(rightEnemyRemoved)
