@@ -7,6 +7,12 @@ let enemiesRemoved = []
 let enemyId
 let goingRight = true;
 let results = 0
+var fired = false
+var leftFired = false
+var middleFired = false
+var rightFired = false
+var rocketFired = false
+
 
 for(let i = 0; i < 256; i++){
     const square = document.createElement('div');
@@ -105,6 +111,7 @@ enemyId = setInterval(moveInvaders, 100)
 function singleLaser(pew){
   let laserId
   let laserPosition = playerPosition
+  
   function movingSingleLaser(){
       coordinates[laserPosition].classList.remove('laser')
       laserPosition -= width 
@@ -126,7 +133,13 @@ function singleLaser(pew){
   }
   switch(pew.key){
       case 'w':
-          laserId = setInterval(movingSingleLaser, 100);
+        if(!fired){
+            laserId = setInterval(movingSingleLaser, 100);
+            setTimeout(() => {
+              fired = false
+            }, 200);
+            fired = true
+          }
   }
 }
 document.addEventListener('keydown', singleLaser)
@@ -157,7 +170,14 @@ function leftLaser(pew){
     }
     switch(pew.key){
         case 'q':
+          if(!leftFired){
             laserLeftId = setInterval(movingLeftLaser, 100);
+            setTimeout(() => {
+              leftFired = false
+            }, 1000);
+            leftFired = true
+          }
+  
     }
 }
 
@@ -187,7 +207,13 @@ function middleLaser(pew){
   }
   switch(pew.key){
       case 'q':
+        if(!middleFired){
           laserMiddleId = setInterval(movingMiddleLaser, 100);
+          setTimeout(() => {
+            middleFired = false
+          }, 1000);
+          middleFired = true
+        }
   }
 }
 document.addEventListener('keydown', middleLaser)
@@ -213,10 +239,16 @@ function rightLaser(pew){
           results++
           resultsDisplay.innerHTML = results
       } 
-  }
+    }
   switch(pew.key){
       case 'q':
+        if(!rightFired){
           laserRightId = setInterval(movingRightLaser, 100);
+          setTimeout(() => {
+            rightFired = false
+          }, 1000);
+          rightFired = true
+        }
   }
 }
 document.addEventListener('keydown', rightLaser)
@@ -265,8 +297,13 @@ function rocket(pew){
    }
    switch(pew.key){
      case 'e':
-       rocketId = setInterval(movingRocket, 200)
-
+      if(!rocketFired){
+        rocketId = setInterval(movingRocket, 100);
+        setTimeout(() => {
+          rocketFired = false
+        }, 2000);
+        rocketFired = true
+      }
    }
 
 }
@@ -275,6 +312,17 @@ document.addEventListener('keydown', rocket);
 console.log(coordinates)
 
 
+
+
+
+
+//if(!fired){
+//   laserId = setInterval(movingSingleLaser, 100);
+//   setInterval(() => {
+//     fired = false
+//   }, 1200);
+//   fired = true
+// }
 // switch(pew.key){
 //   case 'e':
 //     let rocketPosition = playerPosition
