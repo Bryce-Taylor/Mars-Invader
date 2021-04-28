@@ -105,6 +105,7 @@ enemyId = setInterval(moveInvaders, 100)
 function singleLaser(pew){
   let laserId
   let laserPosition = playerPosition
+  
   function movingSingleLaser(){
       coordinates[laserPosition].classList.remove('laser')
       laserPosition -= width 
