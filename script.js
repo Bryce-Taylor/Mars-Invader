@@ -257,7 +257,7 @@ function rocket(pew){
       enemiesRemoved.push(rightRocketEnemyRemoved)
       const topRocketEnemyRemoved = enemies.indexOf(rocketPosition -16)
       enemiesRemoved.push(topRocketEnemyRemoved)
-      results+=3
+      results+=4
       resultsDisplay.innerHTML = results
 
       }
