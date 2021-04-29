@@ -115,10 +115,11 @@ function singleLaser(pew){
   let laserPosition = playerPosition
   
   function movingSingleLaser(){
+      
       coordinates[laserPosition].classList.remove('laser')
       laserPosition -= width 
       coordinates[laserPosition].classList.add('laser')
-
+      
       if (coordinates[laserPosition].classList.contains('invader')){
           coordinates[laserPosition].classList.remove('laser')
           coordinates[laserPosition].classList.remove('invader')
@@ -135,7 +136,10 @@ function singleLaser(pew){
   }
   switch(pew.key){
       case 'k':
+        
         if(!fired){
+            var audio = new Audio('audio/sound-effects-library-laser-gun.mp3');
+            audio.play();
             laserId = setInterval(movingSingleLaser, 100);
             setTimeout(() => {
               fired = false
@@ -210,6 +214,8 @@ function middleLaser(pew){
   switch(pew.key){
       case 'j':
         if(!middleFired){
+          var audio = new Audio('audio/sfx_wpn_cannon6.mp3');
+          audio.play();
           laserMiddleId = setInterval(movingMiddleLaser, 100);
           setTimeout(() => {
             middleFired = false
@@ -317,6 +323,8 @@ function rocket(pew){
    switch(pew.key){
      case 'l':
       if(!rocketFired){
+        var audio = new Audio('audio/sfx_weapon_rocket.mp3');
+        audio.play();
         rocketId = setInterval(movingRocket, 100);
         setTimeout(() => {
           rocketFired = false
