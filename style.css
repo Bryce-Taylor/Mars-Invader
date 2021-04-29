@@ -79,6 +79,10 @@ h2 {
     background-size: contain;
 }
 
+.dababy{
+    background-image: url('images/dababy.jpg');
+}
+
 .boom {
 	background-image: url("images/explosion.png");
 }

@@ -12,6 +12,7 @@ var leftFired = false
 var middleFired = false
 var rightFired = false
 var rocketFired = false
+let dababyFired = false
 
 
 
@@ -326,6 +327,100 @@ function rocket(pew){
 
 }
 document.addEventListener('keydown', rocket);
+
+function daBabyGun(pew){
+  let dababyId
+  let dababyPosition = playerPosition
+  function movingDaBabyGun(){
+    coordinates[dababyPosition].classList.remove('dababy')
+    dababyPosition -= width
+    coordinates[dababyPosition].classList.add('dababy')
+
+    if(coordinates[dababyPosition].classList.contains('invader')){
+      coordinates[dababyPosition].classList.remove('dababy')
+      coordinates[dababyPosition].classList.remove('invader')
+      coordinates[dababyPosition-17].classList.add('boom')
+      coordinates[dababyPosition -34].classList.add('boom');
+      coordinates[dababyPosition -51].classList.add('boom');
+      coordinates[dababyPosition].classList.add('boom');
+      coordinates[dababyPosition +17].classList.add('boom');
+      coordinates[dababyPosition +34].classList.add('boom');
+      coordinates[dababyPosition +51].classList.add('boom');
+      setTimeout(() => coordinates[dababyPosition].classList.remove('boom'), 300 
+      && coordinates[dababyPosition -17].classList.remove('boom'), 300 
+      && coordinates[dababyPosition -34].classList.remove('boom'), 300
+      && coordinates[dababyPosition -51].classList.remove('boom'), 300
+      && coordinates[dababyPosition +17].classList.remove('boom'),300
+      && coordinates[dababyPosition +34].classList.remove('boom'), 300
+      && coordinates[dababyPosition +51].classList.remove('boom'),300) 
+      clearInterval(dababyId)
+      const firstEnemyRemoved = enemies.indexOf(dababyPosition)
+      enemiesRemoved.push(firstEnemyRemoved)
+      
+    
+      if(coordinates[dababyPosition - 17].classList.contains('invader')){
+        coordinates[dababyPosition].classList.remove('dababy')
+        coordinates[dababyPosition - 17].classList.remove('invader')
+        const firstLeftEnemyRemoved = enemies.indexOf(dababyPosition -17)
+        enemiesRemoved.push(firstLeftEnemyRemoved)
+        results++
+      }
+      if(coordinates[dababyPosition + 17]. classList.contains('invader')){
+        coordinates[dababyPosition].classList.remove('dababy')
+        coordinates[dababyPosition + 17].classList.remove('invader')
+        const firstRightEnemyRemoved = enemies.indexOf(dababyPosition +17)
+        enemiesRemoved.push(firstRightEnemyRemoved)
+        results++
+      }
+      if(coordinates[dababyPosition -34].classList.contains('invader')){
+        coordinates[dababyPosition].classList.remove('dababy')
+        coordinates[dababyPosition -34].classList.remove('invader')
+        const secondLeftEnemyRemoved = enemies.indexOf(dababyPosition -34)
+        enemiesRemoved.push(secondLeftEnemyRemoved)
+        results++
+      }
+      if(coordinates[dababyPosition +34].classList.contains('invader')){
+        coordinates[dababyPosition].classList.remove('dababy')
+        coordinates[dababyPosition +34].classList.remove('invader')
+        const secondRightEnemyRemoved = enemies.indexOf(dababyPosition +34)
+        enemiesRemoved.push(secondRightEnemyRemoved)
+        results++
+      }
+      if(coordinates[dababyPosition -51].classList.contains('invader')){
+        coordinates[dababyPosition].classList.remove('dababy')
+        coordinates[dababyPosition -51].classList.remive('invader')
+        const finalLeftEnemyRemoved = enemies.indexOf(dababyPosition -51)
+        enemiesRemoved.push(finalLeftEnemyRemoved)
+        results++
+      }
+      if(coordinates[dababyPosition +51].classList.contains('invader')){
+        coordinates[dababyPosition].classList.remove('dababy')
+        coordinates[dababyPosition +51].classList.remove('invader')
+        const finalRightEnemyRemoved = enemies.indexOf(dababyPosition +51)
+        enemiesRemoved.push(finalRightEnemyRemoved)
+        results++
+      }
+      console.log(enemiesRemoved)
+      results++
+    }
+  
+  resultsDisplay.innerHTML = results
+  }
+  switch(pew.key){
+    case 'b':
+      if(!dababyFired){
+        dababyId = setInterval(movingDaBabyGun, 100);
+        setTimeout(() => {
+          dababyFired = false
+        }, 5000);
+        dababyFired = true;
+      }
+
+  }
+
+}
+document.addEventListener('keydown', daBabyGun);
+  
 
 function restartingGame(){
   location.reload();
