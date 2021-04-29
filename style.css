@@ -31,6 +31,13 @@ body {
     margin-left: 150px;
     
 }
+.start{
+    font-family:'Press Start 2P', cursive;
+    padding: 5px;
+    background-color: orangered;
+    border-radius: 10px;
+    margin-left: 660px;
+}
 
 .results{
     font-family: 'Press Start 2P', cursive;
