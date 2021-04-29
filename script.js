@@ -30,6 +30,7 @@ const enemies = [
     32,33,34,35,36,37,38,
     48,49,50,51,52,53,54
 ]
+
 function draw(){
     for(let i = 0; i < enemies.length; i++){
       if(!enemiesRemoved.includes(i)){
@@ -87,6 +88,9 @@ function moveInvaders() {
   
     draw()
 
+    console.log(enemies)
+    console.log(coordinates)
+
     if (coordinates[playerPosition].classList.contains('invader', 'player')) {
       resultsDisplay.innerHTML = 'GAME OVER'
       clearInterval(enemyId)
@@ -115,10 +119,16 @@ function singleLaser(pew){
   let laserPosition = playerPosition
   
   function movingSingleLaser(){
-      
+    if(laserPosition>16){
       coordinates[laserPosition].classList.remove('laser')
-      laserPosition -= width 
+      laserPosition -= width
       coordinates[laserPosition].classList.add('laser')
+    }else{
+      coordinates[laserPosition].classList.remove('laser')
+    }
+      
+
+      
       
       if (coordinates[laserPosition].classList.contains('invader')){
           coordinates[laserPosition].classList.remove('laser')
@@ -155,9 +165,14 @@ function leftLaser(pew){
     let laserLeftId
     let laserPosition = playerPosition
     function movingLeftLaser(){
+      if(laserPosition>16){
         coordinates[laserPosition-1].classList.remove('laser')
         laserPosition -= width 
         coordinates[laserPosition-1].classList.add('laser')
+      }else{
+        coordinates[laserPosition-1].classList.remove('laser')
+      }
+        
 
         if (coordinates[laserPosition-1].classList.contains('invader')){
             coordinates[laserPosition-1].classList.remove('laser')
@@ -193,9 +208,13 @@ function middleLaser(pew){
   let laserMiddleId
   let laserPosition = playerPosition
   function movingMiddleLaser(){
+    if(laserPosition>16){
       coordinates[laserPosition].classList.remove('laser')
       laserPosition -= width 
       coordinates[laserPosition].classList.add('laser')
+    }else{
+      coordinates[laserPosition].classList.remove('laser')
+    }
 
       if (coordinates[laserPosition].classList.contains('invader')){
           coordinates[laserPosition].classList.remove('laser')
@@ -230,9 +249,13 @@ function rightLaser(pew){
   let laserRightId
   let laserPosition = playerPosition
   function movingRightLaser(){
+    if(laserPosition>16){
       coordinates[laserPosition+1].classList.remove('laser')
       laserPosition -= width 
       coordinates[laserPosition+1].classList.add('laser')
+    }else{
+      coordinates[laserPosition+1].classList.remove('laser')
+    }
 
       if (coordinates[laserPosition+1].classList.contains('invader')){
           coordinates[laserPosition+1].classList.remove('laser')
@@ -269,9 +292,14 @@ function rocket(pew){
    let rocketId
    let rocketPosition = playerPosition
    function movingRocket(){
-     coordinates[rocketPosition].classList.remove('rocket')
-     rocketPosition -= width;
-     coordinates[rocketPosition].classList.add('rocket')
+    if(rocketPosition>16){
+      coordinates[rocketPosition].classList.remove('rocket')
+      rocketPosition -= width;
+      coordinates[rocketPosition].classList.add('rocket')
+    }else{
+      coordinates[rocketPosition].classList.remove('rocket')
+    }
+     
 
      if(coordinates[rocketPosition].classList.contains('invader')){
       coordinates[rocketPosition].classList.remove('rocket')
@@ -340,9 +368,13 @@ function daBabyGun(pew){
   let dababyId
   let dababyPosition = playerPosition
   function movingDaBabyGun(){
-    coordinates[dababyPosition].classList.remove('dababy')
-    dababyPosition -= width
-    coordinates[dababyPosition].classList.add('dababy')
+    if(dababyPosition>16){
+      coordinates[dababyPosition].classList.remove('dababy')
+      dababyPosition -= width
+      coordinates[dababyPosition].classList.add('dababy')
+    }else{
+      coordinates[dababyPosition].classList.remove('dababy')
+    }
 
     if(coordinates[dababyPosition].classList.contains('invader')){
       var audio = new Audio("audio/DaBaby yeah yeah sound effect.mp3");
@@ -426,7 +458,7 @@ function daBabyGun(pew){
         dababyId = setInterval(movingDaBabyGun, 100);
         setTimeout(() => {
           dababyFired = false
-        }, 5000);
+        }, 1000);
         dababyFired = true;
       }
 
