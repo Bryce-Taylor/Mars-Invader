@@ -105,7 +105,7 @@ function moveInvaders() {
     }
 }
 
-enemyId = setInterval(moveInvaders, 100)
+enemyId = setInterval(moveInvaders, 200)
 
 
 
@@ -133,12 +133,12 @@ function singleLaser(pew){
       } 
   }
   switch(pew.key){
-      case 'w':
+      case 'k':
         if(!fired){
             laserId = setInterval(movingSingleLaser, 100);
             setTimeout(() => {
               fired = false
-            }, 200);
+            }, 190);
             fired = true
           }
   }
@@ -170,7 +170,7 @@ function leftLaser(pew){
         } 
     }
     switch(pew.key){
-        case 'q':
+        case 'j':
           if(!leftFired){
             laserLeftId = setInterval(movingLeftLaser, 100);
             setTimeout(() => {
@@ -207,7 +207,7 @@ function middleLaser(pew){
       } 
   }
   switch(pew.key){
-      case 'q':
+      case 'j':
         if(!middleFired){
           laserMiddleId = setInterval(movingMiddleLaser, 100);
           setTimeout(() => {
@@ -242,7 +242,7 @@ function rightLaser(pew){
       } 
     }
   switch(pew.key){
-      case 'q':
+      case 'j':
         if(!rightFired){
           laserRightId = setInterval(movingRightLaser, 100);
           setTimeout(() => {
@@ -297,7 +297,7 @@ function rocket(pew){
   
    }
    switch(pew.key){
-     case 'e':
+     case 'l':
       if(!rocketFired){
         rocketId = setInterval(movingRocket, 100);
         setTimeout(() => {
