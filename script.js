@@ -14,6 +14,8 @@ var rightFired = false
 var rocketFired = false
 
 
+
+
 for(let i = 0; i < 256; i++){
     const square = document.createElement('div');
     grid.appendChild(square)
@@ -309,4 +311,7 @@ function rocket(pew){
 }
 document.addEventListener('keydown', rocket);
 
-console.log(coordinates)
+function restartingGame(){
+  location.reload();
+}
+
