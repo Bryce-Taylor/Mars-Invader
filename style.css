@@ -5,6 +5,19 @@ body {
     background-color: #926400;
 }
 
+h2 {
+    text-decoration: underline;
+  }
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+.box{
+    border: solid black;
+    color: rgb(238, 238, 238);
+}
+
 .grid{
     display: flex;
     flex-wrap: wrap;
@@ -22,6 +35,8 @@ body {
 	width: 25px;
 	height: 25px;
 }
+
+
 
 .results{
     font-family: 'Press Start 2P', cursive;
