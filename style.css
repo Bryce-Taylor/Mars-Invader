@@ -5,6 +5,22 @@ body {
     background-color: #926400;
 }
 
+h2 {
+    text-decoration: underline;
+  }
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+.box{
+    border: solid black;
+    color: rgba(253, 72, 0, 0.808);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+}
+
 .grid{
     display: flex;
     flex-wrap: wrap;
