@@ -351,20 +351,19 @@ function daBabyGun(pew){
       coordinates[dababyPosition -34].classList.add('boom');
       coordinates[dababyPosition -51].classList.add('boom');
       coordinates[dababyPosition].classList.add('boom');
-      coordinates[dababyPosition +17].classList.add('boom');
-      coordinates[dababyPosition +34].classList.add('boom');
-      coordinates[dababyPosition +51].classList.add('boom');
+      coordinates[dababyPosition -15].classList.add('boom');
+      coordinates[dababyPosition -30].classList.add('boom');
+      coordinates[dababyPosition -45].classList.add('boom');
       setTimeout(() => coordinates[dababyPosition].classList.remove('boom'), 300 
       && coordinates[dababyPosition -17].classList.remove('boom'), 300 
       && coordinates[dababyPosition -34].classList.remove('boom'), 300
       && coordinates[dababyPosition -51].classList.remove('boom'), 300
-      && coordinates[dababyPosition +17].classList.remove('boom'),300
-      && coordinates[dababyPosition +34].classList.remove('boom'), 300
-      && coordinates[dababyPosition +51].classList.remove('boom'),300) 
+      && coordinates[dababyPosition -15].classList.remove('boom'),300
+      && coordinates[dababyPosition -30].classList.remove('boom'), 300
+      && coordinates[dababyPosition -45].classList.remove('boom'),300) 
       clearInterval(dababyId)
       const firstEnemyRemoved = enemies.indexOf(dababyPosition)
       enemiesRemoved.push(firstEnemyRemoved)
-      
     
       if(coordinates[dababyPosition - 17].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
@@ -373,10 +372,10 @@ function daBabyGun(pew){
         enemiesRemoved.push(firstLeftEnemyRemoved)
         results++
       }
-      if(coordinates[dababyPosition + 17]. classList.contains('invader')){
+      if(coordinates[dababyPosition -15]. classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
-        coordinates[dababyPosition + 17].classList.remove('invader')
-        const firstRightEnemyRemoved = enemies.indexOf(dababyPosition +17)
+        coordinates[dababyPosition - 15].classList.remove('invader')
+        const firstRightEnemyRemoved = enemies.indexOf(dababyPosition - 15)
         enemiesRemoved.push(firstRightEnemyRemoved)
         results++
       }
@@ -387,10 +386,10 @@ function daBabyGun(pew){
         enemiesRemoved.push(secondLeftEnemyRemoved)
         results++
       }
-      if(coordinates[dababyPosition +34].classList.contains('invader')){
+      if(coordinates[dababyPosition -30].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
-        coordinates[dababyPosition +34].classList.remove('invader')
-        const secondRightEnemyRemoved = enemies.indexOf(dababyPosition +34)
+        coordinates[dababyPosition -30].classList.remove('invader')
+        const secondRightEnemyRemoved = enemies.indexOf(dababyPosition -30)
         enemiesRemoved.push(secondRightEnemyRemoved)
         results++
       }
@@ -401,10 +400,10 @@ function daBabyGun(pew){
         enemiesRemoved.push(finalLeftEnemyRemoved)
         results++
       }
-      if(coordinates[dababyPosition +51].classList.contains('invader')){
+      if(coordinates[dababyPosition -45].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
-        coordinates[dababyPosition +51].classList.remove('invader')
-        const finalRightEnemyRemoved = enemies.indexOf(dababyPosition +51)
+        coordinates[dababyPosition -45].classList.remove('invader')
+        const finalRightEnemyRemoved = enemies.indexOf(dababyPosition -45)
         enemiesRemoved.push(finalRightEnemyRemoved)
         results++
       }
@@ -412,7 +411,7 @@ function daBabyGun(pew){
       results++
     }
   
-  resultsDisplay.innerHTML = results
+    resultsDisplay.innerHTML = results
   }
   switch(pew.key){
     case 'b':
