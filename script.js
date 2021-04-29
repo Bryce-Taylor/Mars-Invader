@@ -14,6 +14,8 @@ var rightFired = false
 var rocketFired = false
 
 
+
+
 for(let i = 0; i < 256; i++){
     const square = document.createElement('div');
     grid.appendChild(square)
@@ -289,7 +291,7 @@ function rocket(pew){
       enemiesRemoved.push(rightRocketEnemyRemoved)
       const topRocketEnemyRemoved = enemies.indexOf(rocketPosition -16)
       enemiesRemoved.push(topRocketEnemyRemoved)
-      results+=4
+      results+=4 
       resultsDisplay.innerHTML = results
 
       }
@@ -309,4 +311,7 @@ function rocket(pew){
 }
 document.addEventListener('keydown', rocket);
 
+function restartingGame(){
+  location.reload();
+}
 

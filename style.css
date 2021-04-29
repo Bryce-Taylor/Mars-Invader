@@ -13,9 +13,12 @@ h2 {
     display: flex;
     flex-wrap: wrap;
   }
+
 .box{
     border: solid black;
-    color: rgb(238, 238, 238);
+    color: rgba(253, 72, 0, 0.808);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
 }
 
 .grid{
@@ -36,7 +39,14 @@ h2 {
 	height: 25px;
 }
 
-
+.restart{
+    font-family: 'Press Start 2P', cursive;
+    background-color: coral;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 150px;
+    
+}
 
 .results{
     font-family: 'Press Start 2P', cursive;
