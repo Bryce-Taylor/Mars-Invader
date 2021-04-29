@@ -345,6 +345,8 @@ function daBabyGun(pew){
     coordinates[dababyPosition].classList.add('dababy')
 
     if(coordinates[dababyPosition].classList.contains('invader')){
+      var audio = new Audio("audio/DaBaby yeah yeah sound effect.mp3");
+      audio.play();
       coordinates[dababyPosition].classList.remove('dababy')
       coordinates[dababyPosition].classList.remove('invader')
       coordinates[dababyPosition-17].classList.add('boom')
@@ -369,6 +371,7 @@ function daBabyGun(pew){
       if(coordinates[dababyPosition - 17].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
         coordinates[dababyPosition - 17].classList.remove('invader')
+
         const firstLeftEnemyRemoved = enemies.indexOf(dababyPosition -17)
         enemiesRemoved.push(firstLeftEnemyRemoved)
         results++
@@ -376,6 +379,7 @@ function daBabyGun(pew){
       if(coordinates[dababyPosition + 17]. classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
         coordinates[dababyPosition + 17].classList.remove('invader')
+
         const firstRightEnemyRemoved = enemies.indexOf(dababyPosition +17)
         enemiesRemoved.push(firstRightEnemyRemoved)
         results++
@@ -383,6 +387,7 @@ function daBabyGun(pew){
       if(coordinates[dababyPosition -34].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
         coordinates[dababyPosition -34].classList.remove('invader')
+
         const secondLeftEnemyRemoved = enemies.indexOf(dababyPosition -34)
         enemiesRemoved.push(secondLeftEnemyRemoved)
         results++
@@ -390,6 +395,7 @@ function daBabyGun(pew){
       if(coordinates[dababyPosition +34].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
         coordinates[dababyPosition +34].classList.remove('invader')
+
         const secondRightEnemyRemoved = enemies.indexOf(dababyPosition +34)
         enemiesRemoved.push(secondRightEnemyRemoved)
         results++
@@ -397,6 +403,7 @@ function daBabyGun(pew){
       if(coordinates[dababyPosition -51].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
         coordinates[dababyPosition -51].classList.remive('invader')
+
         const finalLeftEnemyRemoved = enemies.indexOf(dababyPosition -51)
         enemiesRemoved.push(finalLeftEnemyRemoved)
         results++
@@ -404,6 +411,7 @@ function daBabyGun(pew){
       if(coordinates[dababyPosition +51].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
         coordinates[dababyPosition +51].classList.remove('invader')
+
         const finalRightEnemyRemoved = enemies.indexOf(dababyPosition +51)
         enemiesRemoved.push(finalRightEnemyRemoved)
         results++
@@ -417,6 +425,8 @@ function daBabyGun(pew){
   switch(pew.key){
     case 'b':
       if(!dababyFired){
+        var audio = new Audio("audio/Dababy - LET'S GO sound effect.mp3");
+        audio.play();
         dababyId = setInterval(movingDaBabyGun, 100);
         setTimeout(() => {
           dababyFired = false
