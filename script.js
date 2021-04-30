@@ -98,7 +98,7 @@ function moveInvaders() {
     }
   
     for (let i = 0; i <= enemies.length; i++) {
-      if(enemies[i] > (coordinates.length)) {
+      if(enemies[i] > 240) {
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(enemyId) 
       }
