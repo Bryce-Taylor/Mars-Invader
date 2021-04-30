@@ -128,9 +128,6 @@ function singleLaser(pew){
       coordinates[laserPosition].classList.remove('laser')
     }
       
-
-      
-      
       if (coordinates[laserPosition].classList.contains('invader')){
           coordinates[laserPosition].classList.remove('laser')
           coordinates[laserPosition].classList.remove('invader')
@@ -378,8 +375,6 @@ function daBabyGun(pew){
     }
 
     if(coordinates[dababyPosition].classList.contains('invader')){
-      var audio = new Audio("audio/DaBaby yeah yeah sound effect.mp3");
-      audio.play();
       coordinates[dababyPosition].classList.remove('dababy')
       coordinates[dababyPosition].classList.remove('invader')
       coordinates[dababyPosition-17].classList.add('boom')
@@ -448,7 +443,6 @@ function daBabyGun(pew){
       console.log(enemiesRemoved)
       results++
     }
-  
     resultsDisplay.innerHTML = results
   }
   switch(pew.key){
@@ -459,7 +453,7 @@ function daBabyGun(pew){
         dababyId = setInterval(movingDaBabyGun, 100);
         setTimeout(() => {
           dababyFired = false
-        }, 1000);
+        }, 5000);
         dababyFired = true;
       }
 
