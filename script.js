@@ -98,7 +98,8 @@ function moveInvaders() {
     }
   
     for (let i = 0; i <= enemies.length; i++) {
-      if(enemies[i] > 240) {
+      if(enemies[i] >= 250) {
+        console.log(enemies[i])
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(enemyId) 
       }
@@ -439,7 +440,6 @@ function daBabyGun(pew){
         enemiesRemoved.push(finalRightEnemyRemoved)
         results++
       }
-      console.log(enemiesRemoved)
       results++
     }
     resultsDisplay.innerHTML = results
