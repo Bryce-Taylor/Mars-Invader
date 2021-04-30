@@ -98,9 +98,10 @@ function moveInvaders() {
     }
   
     for (let i = 0; i <= enemies.length; i++) {
-      if(enemies[i] > (coordinates.length)) {
-        resultsDisplay.innerHTML = 'GAME OVER'
-        clearInterval(enemyId) 
+      if(enemies[i] >= (coordinates.length)) {
+        if(enemies[i]>16)
+          resultsDisplay.innerHTML = 'GAME OVER'
+          clearInterval(enemyId) 
       }
     }
     if (enemiesRemoved.length >= enemies.length) {
@@ -431,7 +432,7 @@ function daBabyGun(pew){
       }
       if(coordinates[dababyPosition -51].classList.contains('invader')){
         coordinates[dababyPosition].classList.remove('dababy')
-        coordinates[dababyPosition -51].classList.remive('invader')
+        coordinates[dababyPosition -51].classList.remove('invader')
 
         const finalLeftEnemyRemoved = enemies.indexOf(dababyPosition -51)
         enemiesRemoved.push(finalLeftEnemyRemoved)
