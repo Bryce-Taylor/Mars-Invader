@@ -88,8 +88,8 @@ function moveInvaders() {
   
     draw()
 
-    console.log(enemies)
-    console.log(coordinates)
+    
+    
 
     if (coordinates[playerPosition].classList.contains('invader', 'player')) {
       resultsDisplay.innerHTML = 'GAME OVER'
@@ -99,7 +99,6 @@ function moveInvaders() {
   
     for (let i = 0; i <= enemies.length; i++) {
       if(enemies[i] >= 250) {
-        console.log(enemies[i])
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(enemyId) 
       }
@@ -339,7 +338,6 @@ function rocket(pew){
         enemiesRemoved.push(topRocketEnemyRemoved)
         results++ 
       }
-      console.log(enemiesRemoved)
       results++ 
       resultsDisplay.innerHTML = results
      }
