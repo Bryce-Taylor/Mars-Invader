@@ -341,10 +341,8 @@ function rocket(pew){
       }
       console.log(enemiesRemoved)
       results++ 
+      resultsDisplay.innerHTML = results
      }
-    
-    resultsDisplay.innerHTML = results
-  
    }
    switch(pew.key){
      case 'l':
@@ -358,7 +356,6 @@ function rocket(pew){
         rocketFired = true
       }
    }
-
 }
 document.addEventListener('keydown', rocket);
 
@@ -441,8 +438,9 @@ function daBabyGun(pew){
         results++
       }
       results++
+      resultsDisplay.innerHTML = results
     }
-    resultsDisplay.innerHTML = results
+    
   }
   switch(pew.key){
     case 'b':
